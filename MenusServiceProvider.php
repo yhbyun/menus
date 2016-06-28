@@ -38,7 +38,7 @@ class MenusServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerHtmlPackage();
+        //$this->registerHtmlPackage();
 
         $this->app['menus'] = $this->app->share(function ($app) {
             return new Menu($app['view'], $app['config']);

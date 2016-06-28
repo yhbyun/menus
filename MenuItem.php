@@ -533,7 +533,7 @@ class MenuItem implements ArrayableContract
      */
     protected function getActiveStateFromRoute()
     {
-        return Request::is(str_replace(url().'/', '', $this->getUrl()));
+        return Request::is(str_replace(url('/').'/', '', $this->getUrl()) . '*');
     }
 
     /**
@@ -543,7 +543,7 @@ class MenuItem implements ArrayableContract
      */
     protected function getActiveStateFromUrl()
     {
-        return Request::is($this->url);
+        return Request::is($this->url ? $this->url . '*' : '');
     }
 
     /**
