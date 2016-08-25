@@ -19,6 +19,10 @@ class MenusServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if ($this->app->runningInConsole()) {
+            return;
+        }
+
         $this->registerNamespaces();
         $this->registerMenusFile();
     }
@@ -38,6 +42,10 @@ class MenusServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        if ($this->app->runningInConsole()) {
+            return;
+        }
+
         //$this->registerHtmlPackage();
 
         $this->app['menus'] = $this->app->share(function ($app) {
